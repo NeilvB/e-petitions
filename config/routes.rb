@@ -125,6 +125,9 @@ Rails.application.routes.draw do
         end
       end
 
+      get '/surveys/new', to: 'surveys#new'
+      get '/surveys', to: 'surveys#index'
+
       resource :rate_limits, path: 'rate-limits', only: %i[edit update]
       resource :site, only: %i[edit update]
 
