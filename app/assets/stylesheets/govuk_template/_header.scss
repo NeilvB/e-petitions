@@ -238,7 +238,7 @@
 #global-header-bar {
   @extend %site-width-container;
   height: 10px;
-  background-color: $govuk-blue;
+  background-color: $states-assembly-red;
   @include ie-lte(8) {
     font-size: 0;
   }
