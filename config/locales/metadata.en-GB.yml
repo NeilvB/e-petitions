@@ -1,12 +1,12 @@
 en-GB:
   metadata:
     open_graph:
-      site_name: "Petitions - UK Government and Parliament"
-      default_title: "Petitions - UK Government and Parliament"
+      site_name: "Petitions - States of Jersey"
+      default_title: "Petitions - States of Jersey"
       title: "Petition: %{petition}"
       archived_title: "Archived Petition: %{petition}"
 
     twitter:
-      default_title: "Petitions - UK Government and Parliament"
+      default_title: "Petitions - States of Jersey"
       title: "Petition: %{petition}"
       archived_title: "Archived Petition: %{petition}"
