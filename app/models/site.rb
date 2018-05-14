@@ -235,11 +235,11 @@ class Site < ActiveRecord::Base
     end
 
     def default_threshold_for_response
-      ENV.fetch('THRESHOLD_FOR_RESPONSE', '10000').to_i
+      ENV.fetch('THRESHOLD_FOR_RESPONSE', '1000').to_i
     end
 
     def default_threshold_for_debate
-      ENV.fetch('THRESHOLD_FOR_DEBATE', '100000').to_i
+      ENV.fetch('THRESHOLD_FOR_DEBATE', '5000').to_i
     end
 
     def default_constraints_for_public

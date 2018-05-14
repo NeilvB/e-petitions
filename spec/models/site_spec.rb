@@ -448,25 +448,25 @@ RSpec.describe Site, type: :model do
     end
 
     describe "for threshold_for_response" do
-      it "defaults to 10000" do
-        allow(ENV).to receive(:fetch).with("THRESHOLD_FOR_RESPONSE", '10000').and_return("10000")
-        expect(defaults[:threshold_for_response]).to eq(10000)
+      it "defaults to 1000" do
+        allow(ENV).to receive(:fetch).with("THRESHOLD_FOR_RESPONSE", '1000').and_return("1000")
+        expect(defaults[:threshold_for_response]).to eq(1000)
       end
 
       it "can be overridden with the THRESHOLD_FOR_RESPONSE environment variable" do
-        allow(ENV).to receive(:fetch).with("THRESHOLD_FOR_RESPONSE", '10000').and_return("5000")
+        allow(ENV).to receive(:fetch).with("THRESHOLD_FOR_RESPONSE", '1000').and_return("5000")
         expect(defaults[:threshold_for_response]).to eq(5000)
       end
     end
 
     describe "for threshold_for_debate" do
-      it "defaults to 10000" do
-        allow(ENV).to receive(:fetch).with("THRESHOLD_FOR_DEBATE", '100000').and_return("100000")
-        expect(defaults[:threshold_for_debate]).to eq(100000)
+      it "defaults to 5000" do
+        allow(ENV).to receive(:fetch).with("THRESHOLD_FOR_DEBATE", '5000').and_return("5000")
+        expect(defaults[:threshold_for_debate]).to eq(5000)
       end
 
       it "can be overridden with the THRESHOLD_FOR_DEBATE environment variable" do
-        allow(ENV).to receive(:fetch).with("THRESHOLD_FOR_DEBATE", '100000').and_return("50000")
+        allow(ENV).to receive(:fetch).with("THRESHOLD_FOR_DEBATE", '5000').and_return("50000")
         expect(defaults[:threshold_for_debate]).to eq(50000)
       end
     end
