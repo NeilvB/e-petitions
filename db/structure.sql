@@ -1095,8 +1095,8 @@ CREATE TABLE sites (
     minimum_number_of_sponsors integer DEFAULT 5 NOT NULL,
     maximum_number_of_sponsors integer DEFAULT 20 NOT NULL,
     threshold_for_moderation integer DEFAULT 5 NOT NULL,
-    threshold_for_response integer DEFAULT 10000 NOT NULL,
-    threshold_for_debate integer DEFAULT 100000 NOT NULL,
+    threshold_for_response integer DEFAULT 1000 NOT NULL,
+    threshold_for_debate integer DEFAULT 5000 NOT NULL,
     last_checked_at timestamp without time zone,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
@@ -2667,4 +2667,6 @@ INSERT INTO schema_migrations (version) VALUES ('20180329062433');
 INSERT INTO schema_migrations (version) VALUES ('20180510122656');
 
 INSERT INTO schema_migrations (version) VALUES ('20180510131346');
+
+INSERT INTO schema_migrations (version) VALUES ('20180515102418');
 
