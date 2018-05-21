@@ -48,12 +48,12 @@ RSpec.describe PetitionsController, type: :controller do
       }
     end
 
-    let(:constituency) do
-      FactoryBot.create(:constituency, external_id: "54321", name: "North Creatorshire")
+    let(:parish) do
+      FactoryBot.create(:parish, external_id: "54321", name: "North Creatorshire")
     end
 
     before do
-      allow(Constituency).to receive(:find_by_postcode).with("SE34LL").and_return(constituency)
+      allow(Parish).to receive(:find_by_postcode).with("SE34LL").and_return(parish)
     end
 
     context "valid post" do
@@ -141,7 +141,7 @@ RSpec.describe PetitionsController, type: :controller do
           post :create, params: { stage: "replay_email", petition_creator: params.merge(state: Signature::VALIDATED_STATE) }
         end
 
-        expect(petition.creator.constituency_id).to eq("54321")
+        expect(petition.creator.parish_id).to eq("54321")
       end
 
       context "invalid post" do

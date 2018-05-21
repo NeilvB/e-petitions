@@ -5,8 +5,8 @@ RSpec.describe SignaturesController, type: :controller do
   let(:ip_blocked) { false }
 
   before do
-    constituency = FactoryBot.create(:constituency, :london_and_westminster)
-    allow(Constituency).to receive(:find_by_postcode).with("SW1A1AA").and_return(constituency)
+    parish = FactoryBot.create(:parish, :london_and_westminster)
+    allow(Parish).to receive(:find_by_postcode).with("SW1A1AA").and_return(parish)
     allow(RateLimit).to receive(:first_or_create!).and_return(rate_limit)
     allow(rate_limit).to receive(:permitted?).and_return(!ip_blocked)
     allow(rate_limit).to receive(:exceeded?).and_return(false)
@@ -611,8 +611,8 @@ RSpec.describe SignaturesController, type: :controller do
         expect(assigns[:signature]).to be_validated
       end
 
-      it "records the constituency id on the signature" do
-        expect(assigns[:signature].constituency_id).to eq("3415")
+      it "records the parish id on the signature" do
+        expect(assigns[:signature].parish_id).to eq("3415")
       end
 
       it "redirects to the signed signature page" do
@@ -641,8 +641,8 @@ RSpec.describe SignaturesController, type: :controller do
           expect(assigns[:signature]).to be_validated
         end
 
-        it "records the constituency id on the signature" do
-          expect(assigns[:signature].constituency_id).to eq("3415")
+        it "records the parish id on the signature" do
+          expect(assigns[:signature].parish_id).to eq("3415")
         end
 
         it "redirects to the signed signature page" do

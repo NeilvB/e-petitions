@@ -39,6 +39,10 @@ module CacheHelper
         @template = template
       end
 
+      def parish
+        assigns['parish']
+      end
+
       def constituency
         assigns['constituency']
       end

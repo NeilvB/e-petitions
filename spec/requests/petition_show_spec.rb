@@ -172,11 +172,11 @@ RSpec.describe "API request to show a petition", type: :request, show_exceptions
       )
     end
 
-    it "includes the signatures by constituency data" do
+    it "includes the signatures by parish data" do
       petition = FactoryBot.create :open_petition
 
-      FactoryBot.create :constituency, :coventry_north_east
-      FactoryBot.create :constituency, :bethnal_green_and_bow
+      FactoryBot.create :parish, :coventry_north_east
+      FactoryBot.create :parish, :bethnal_green_and_bow
 
       FactoryBot.create :parish_petition_journal, parish_id: 3427, signature_count: 123, petition: petition
       FactoryBot.create :parish_petition_journal, parish_id: 3320, signature_count: 456, petition: petition

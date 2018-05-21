@@ -4,7 +4,7 @@ Given(/^a constituency "(.*?)"(?: with MP "(.*?)")? is found by postcode "(.*?)"
 
   if constituency.nil?
     mp_name = mp_name.present? ? mp_name : 'Rye Tonnemem-Burr MP'
-    constituency = FactoryBot.create(:constituency, name: constituency_name, mp_name: mp_name, mp_date: 3.years.ago)
+    constituency = FactoryBot.create(:parish, name: constituency_name, mp_name: mp_name, mp_date: 3.years.ago)
     @constituencies[constituency.name] = constituency
   end
 
