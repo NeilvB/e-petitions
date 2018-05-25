@@ -1,9 +1,11 @@
 SET statement_timeout = 0;
 SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SET check_function_bodies = false;
 SET client_min_messages = warning;
+SET row_security = off;
 
 --
 -- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: -
@@ -40,7 +42,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: admin_users; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: admin_users; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE admin_users (
@@ -86,7 +88,7 @@ ALTER SEQUENCE admin_users_id_seq OWNED BY admin_users.id;
 
 
 --
--- Name: ar_internal_metadata; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: ar_internal_metadata; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE ar_internal_metadata (
@@ -98,7 +100,7 @@ CREATE TABLE ar_internal_metadata (
 
 
 --
--- Name: constituencies; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: constituencies; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE constituencies (
@@ -137,7 +139,7 @@ ALTER SEQUENCE constituencies_id_seq OWNED BY constituencies.id;
 
 
 --
--- Name: constituency_petition_journals; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: constituency_petition_journals; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE constituency_petition_journals (
@@ -170,7 +172,7 @@ ALTER SEQUENCE constituency_petition_journals_id_seq OWNED BY constituency_petit
 
 
 --
--- Name: debate_outcomes; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: debate_outcomes; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE debate_outcomes (
@@ -211,7 +213,7 @@ ALTER SEQUENCE debate_outcomes_id_seq OWNED BY debate_outcomes.id;
 
 
 --
--- Name: delayed_jobs; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: delayed_jobs; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE delayed_jobs (
@@ -250,7 +252,7 @@ ALTER SEQUENCE delayed_jobs_id_seq OWNED BY delayed_jobs.id;
 
 
 --
--- Name: email_requested_receipts; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: email_requested_receipts; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE email_requested_receipts (
@@ -285,7 +287,7 @@ ALTER SEQUENCE email_requested_receipts_id_seq OWNED BY email_requested_receipts
 
 
 --
--- Name: feedback; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: feedback; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE feedback (
@@ -317,7 +319,7 @@ ALTER SEQUENCE feedback_id_seq OWNED BY feedback.id;
 
 
 --
--- Name: government_responses; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: government_responses; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE government_responses (
@@ -350,7 +352,7 @@ ALTER SEQUENCE government_responses_id_seq OWNED BY government_responses.id;
 
 
 --
--- Name: holidays; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: holidays; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE holidays (
@@ -384,7 +386,7 @@ ALTER SEQUENCE holidays_id_seq OWNED BY holidays.id;
 
 
 --
--- Name: invalidations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: invalidations; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE invalidations (
@@ -431,7 +433,7 @@ ALTER SEQUENCE invalidations_id_seq OWNED BY invalidations.id;
 
 
 --
--- Name: notes; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: notes; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE notes (
@@ -463,7 +465,7 @@ ALTER SEQUENCE notes_id_seq OWNED BY notes.id;
 
 
 --
--- Name: petition_emails; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: petition_emails; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE petition_emails (
@@ -497,7 +499,7 @@ ALTER SEQUENCE petition_emails_id_seq OWNED BY petition_emails.id;
 
 
 --
--- Name: petitions; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: petitions; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE petitions (
@@ -550,7 +552,7 @@ ALTER SEQUENCE petitions_id_seq OWNED BY petitions.id;
 
 
 --
--- Name: rate_limits; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: rate_limits; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE rate_limits (
@@ -590,7 +592,7 @@ ALTER SEQUENCE rate_limits_id_seq OWNED BY rate_limits.id;
 
 
 --
--- Name: rejections; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: rejections; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE rejections (
@@ -623,7 +625,7 @@ ALTER SEQUENCE rejections_id_seq OWNED BY rejections.id;
 
 
 --
--- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE schema_migrations (
@@ -632,7 +634,7 @@ CREATE TABLE schema_migrations (
 
 
 --
--- Name: signatures; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: signatures; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE signatures (
@@ -685,7 +687,7 @@ ALTER SEQUENCE signatures_id_seq OWNED BY signatures.id;
 
 
 --
--- Name: sites; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: sites; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE sites (
@@ -734,7 +736,7 @@ ALTER SEQUENCE sites_id_seq OWNED BY sites.id;
 
 
 --
--- Name: tags; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: tags; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE tags (
@@ -766,7 +768,7 @@ ALTER SEQUENCE tags_id_seq OWNED BY tags.id;
 
 
 --
--- Name: tasks; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: tasks; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE tasks (
@@ -797,140 +799,140 @@ ALTER SEQUENCE tasks_id_seq OWNED BY tasks.id;
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: admin_users id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY admin_users ALTER COLUMN id SET DEFAULT nextval('admin_users_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: constituencies id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY constituencies ALTER COLUMN id SET DEFAULT nextval('constituencies_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: constituency_petition_journals id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY constituency_petition_journals ALTER COLUMN id SET DEFAULT nextval('constituency_petition_journals_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: debate_outcomes id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY debate_outcomes ALTER COLUMN id SET DEFAULT nextval('debate_outcomes_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: delayed_jobs id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY delayed_jobs ALTER COLUMN id SET DEFAULT nextval('delayed_jobs_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: email_requested_receipts id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY email_requested_receipts ALTER COLUMN id SET DEFAULT nextval('email_requested_receipts_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: feedback id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY feedback ALTER COLUMN id SET DEFAULT nextval('feedback_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: government_responses id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY government_responses ALTER COLUMN id SET DEFAULT nextval('government_responses_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: holidays id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY holidays ALTER COLUMN id SET DEFAULT nextval('holidays_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: invalidations id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY invalidations ALTER COLUMN id SET DEFAULT nextval('invalidations_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: notes id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY notes ALTER COLUMN id SET DEFAULT nextval('notes_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: petition_emails id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY petition_emails ALTER COLUMN id SET DEFAULT nextval('petition_emails_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: petitions id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY petitions ALTER COLUMN id SET DEFAULT nextval('petitions_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: rate_limits id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY rate_limits ALTER COLUMN id SET DEFAULT nextval('rate_limits_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: rejections id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY rejections ALTER COLUMN id SET DEFAULT nextval('rejections_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: signatures id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY signatures ALTER COLUMN id SET DEFAULT nextval('signatures_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: sites id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY sites ALTER COLUMN id SET DEFAULT nextval('sites_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: tags id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tags ALTER COLUMN id SET DEFAULT nextval('tags_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: tasks id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tasks ALTER COLUMN id SET DEFAULT nextval('tasks_id_seq'::regclass);
 
 
 --
--- Name: admin_users_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: admin_users admin_users_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY admin_users
@@ -938,7 +940,7 @@ ALTER TABLE ONLY admin_users
 
 
 --
--- Name: ar_internal_metadata_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: ar_internal_metadata ar_internal_metadata_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY ar_internal_metadata
@@ -946,7 +948,7 @@ ALTER TABLE ONLY ar_internal_metadata
 
 
 --
--- Name: constituencies_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: constituencies constituencies_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY constituencies
@@ -954,7 +956,7 @@ ALTER TABLE ONLY constituencies
 
 
 --
--- Name: constituency_petition_journals_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: constituency_petition_journals constituency_petition_journals_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY constituency_petition_journals
@@ -962,7 +964,7 @@ ALTER TABLE ONLY constituency_petition_journals
 
 
 --
--- Name: debate_outcomes_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: debate_outcomes debate_outcomes_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY debate_outcomes
@@ -970,7 +972,7 @@ ALTER TABLE ONLY debate_outcomes
 
 
 --
--- Name: delayed_jobs_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: delayed_jobs delayed_jobs_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY delayed_jobs
@@ -978,7 +980,7 @@ ALTER TABLE ONLY delayed_jobs
 
 
 --
--- Name: email_requested_receipts_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: email_requested_receipts email_requested_receipts_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY email_requested_receipts
@@ -986,7 +988,7 @@ ALTER TABLE ONLY email_requested_receipts
 
 
 --
--- Name: feedback_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: feedback feedback_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY feedback
@@ -994,7 +996,7 @@ ALTER TABLE ONLY feedback
 
 
 --
--- Name: government_responses_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: government_responses government_responses_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY government_responses
@@ -1002,7 +1004,7 @@ ALTER TABLE ONLY government_responses
 
 
 --
--- Name: holidays_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: holidays holidays_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY holidays
@@ -1010,7 +1012,7 @@ ALTER TABLE ONLY holidays
 
 
 --
--- Name: invalidations_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: invalidations invalidations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY invalidations
@@ -1018,7 +1020,7 @@ ALTER TABLE ONLY invalidations
 
 
 --
--- Name: notes_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: notes notes_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY notes
@@ -1026,7 +1028,7 @@ ALTER TABLE ONLY notes
 
 
 --
--- Name: petition_emails_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: petition_emails petition_emails_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY petition_emails
@@ -1034,7 +1036,7 @@ ALTER TABLE ONLY petition_emails
 
 
 --
--- Name: petitions_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: petitions petitions_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY petitions
@@ -1042,7 +1044,7 @@ ALTER TABLE ONLY petitions
 
 
 --
--- Name: rate_limits_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: rate_limits rate_limits_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY rate_limits
@@ -1050,7 +1052,7 @@ ALTER TABLE ONLY rate_limits
 
 
 --
--- Name: rejections_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: rejections rejections_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY rejections
@@ -1058,7 +1060,15 @@ ALTER TABLE ONLY rejections
 
 
 --
--- Name: signatures_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: schema_migrations schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY schema_migrations
+    ADD CONSTRAINT schema_migrations_pkey PRIMARY KEY (version);
+
+
+--
+-- Name: signatures signatures_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY signatures
@@ -1066,7 +1076,7 @@ ALTER TABLE ONLY signatures
 
 
 --
--- Name: sites_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: sites sites_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY sites
@@ -1074,7 +1084,7 @@ ALTER TABLE ONLY sites
 
 
 --
--- Name: tags_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: tags tags_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tags
@@ -1082,7 +1092,7 @@ ALTER TABLE ONLY tags
 
 
 --
--- Name: tasks_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: tasks tasks_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY tasks
@@ -1090,385 +1100,378 @@ ALTER TABLE ONLY tasks
 
 
 --
--- Name: ft_index_invalidations_on_details; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: ft_index_invalidations_on_details; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX ft_index_invalidations_on_details ON invalidations USING gin (to_tsvector('english'::regconfig, (details)::text));
+CREATE INDEX ft_index_invalidations_on_details ON public.invalidations USING gin (to_tsvector('english'::regconfig, (details)::text));
 
 
 --
--- Name: ft_index_invalidations_on_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: ft_index_invalidations_on_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX ft_index_invalidations_on_id ON invalidations USING gin (to_tsvector('english'::regconfig, (id)::text));
+CREATE INDEX ft_index_invalidations_on_id ON public.invalidations USING gin (to_tsvector('english'::regconfig, (id)::text));
 
 
 --
--- Name: ft_index_invalidations_on_petition_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: ft_index_invalidations_on_petition_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX ft_index_invalidations_on_petition_id ON invalidations USING gin (to_tsvector('english'::regconfig, (petition_id)::text));
+CREATE INDEX ft_index_invalidations_on_petition_id ON public.invalidations USING gin (to_tsvector('english'::regconfig, (petition_id)::text));
 
 
 --
--- Name: ft_index_invalidations_on_summary; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: ft_index_invalidations_on_summary; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX ft_index_invalidations_on_summary ON invalidations USING gin (to_tsvector('english'::regconfig, (summary)::text));
+CREATE INDEX ft_index_invalidations_on_summary ON public.invalidations USING gin (to_tsvector('english'::regconfig, (summary)::text));
 
 
 --
--- Name: idx_constituency_petition_journal_uniqueness; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: idx_constituency_petition_journal_uniqueness; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE UNIQUE INDEX idx_constituency_petition_journal_uniqueness ON constituency_petition_journals USING btree (petition_id, constituency_id);
+CREATE UNIQUE INDEX idx_constituency_petition_journal_uniqueness ON public.constituency_petition_journals USING btree (petition_id, constituency_id);
 
 
 --
--- Name: index_admin_users_on_email; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_admin_users_on_email; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE UNIQUE INDEX index_admin_users_on_email ON admin_users USING btree (email);
+CREATE UNIQUE INDEX index_admin_users_on_email ON public.admin_users USING btree (email);
 
 
 --
--- Name: index_admin_users_on_last_name_and_first_name; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_admin_users_on_last_name_and_first_name; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_admin_users_on_last_name_and_first_name ON admin_users USING btree (last_name, first_name);
+CREATE INDEX index_admin_users_on_last_name_and_first_name ON public.admin_users USING btree (last_name, first_name);
 
 
 --
--- Name: index_constituencies_on_external_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_constituencies_on_external_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE UNIQUE INDEX index_constituencies_on_external_id ON constituencies USING btree (external_id);
+CREATE UNIQUE INDEX index_constituencies_on_external_id ON public.constituencies USING btree (external_id);
 
 
 --
--- Name: index_constituencies_on_slug; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_constituencies_on_slug; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE UNIQUE INDEX index_constituencies_on_slug ON constituencies USING btree (slug);
+CREATE UNIQUE INDEX index_constituencies_on_slug ON public.constituencies USING btree (slug);
 
 
 --
--- Name: index_debate_outcomes_on_petition_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_debate_outcomes_on_petition_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE UNIQUE INDEX index_debate_outcomes_on_petition_id ON debate_outcomes USING btree (petition_id);
+CREATE UNIQUE INDEX index_debate_outcomes_on_petition_id ON public.debate_outcomes USING btree (petition_id);
 
 
 --
--- Name: index_debate_outcomes_on_petition_id_and_debated_on; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_debate_outcomes_on_petition_id_and_debated_on; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_debate_outcomes_on_petition_id_and_debated_on ON debate_outcomes USING btree (petition_id, debated_on);
+CREATE INDEX index_debate_outcomes_on_petition_id_and_debated_on ON public.debate_outcomes USING btree (petition_id, debated_on);
 
 
 --
--- Name: index_debate_outcomes_on_updated_at; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_debate_outcomes_on_updated_at; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_debate_outcomes_on_updated_at ON debate_outcomes USING btree (updated_at);
+CREATE INDEX index_debate_outcomes_on_updated_at ON public.debate_outcomes USING btree (updated_at);
 
 
 --
--- Name: index_delayed_jobs_on_priority_and_run_at; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_delayed_jobs_on_priority_and_run_at; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_delayed_jobs_on_priority_and_run_at ON delayed_jobs USING btree (priority, run_at);
+CREATE INDEX index_delayed_jobs_on_priority_and_run_at ON public.delayed_jobs USING btree (priority, run_at);
 
 
 --
--- Name: index_email_requested_receipts_on_petition_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_email_requested_receipts_on_petition_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_email_requested_receipts_on_petition_id ON email_requested_receipts USING btree (petition_id);
+CREATE INDEX index_email_requested_receipts_on_petition_id ON public.email_requested_receipts USING btree (petition_id);
 
 
 --
--- Name: index_ft_tags_on_description; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_ft_tags_on_description; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_ft_tags_on_description ON tags USING gin (to_tsvector('english'::regconfig, (description)::text));
+CREATE INDEX index_ft_tags_on_description ON public.tags USING gin (to_tsvector('english'::regconfig, (description)::text));
 
 
 --
--- Name: index_ft_tags_on_name; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_ft_tags_on_name; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_ft_tags_on_name ON tags USING gin (to_tsvector('english'::regconfig, (name)::text));
+CREATE INDEX index_ft_tags_on_name ON public.tags USING gin (to_tsvector('english'::regconfig, (name)::text));
 
 
 --
--- Name: index_government_responses_on_petition_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_government_responses_on_petition_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE UNIQUE INDEX index_government_responses_on_petition_id ON government_responses USING btree (petition_id);
+CREATE UNIQUE INDEX index_government_responses_on_petition_id ON public.government_responses USING btree (petition_id);
 
 
 --
--- Name: index_government_responses_on_updated_at; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_government_responses_on_updated_at; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_government_responses_on_updated_at ON government_responses USING btree (updated_at);
+CREATE INDEX index_government_responses_on_updated_at ON public.government_responses USING btree (updated_at);
 
 
 --
--- Name: index_invalidations_on_cancelled_at; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_invalidations_on_cancelled_at; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_invalidations_on_cancelled_at ON invalidations USING btree (cancelled_at);
+CREATE INDEX index_invalidations_on_cancelled_at ON public.invalidations USING btree (cancelled_at);
 
 
 --
--- Name: index_invalidations_on_completed_at; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_invalidations_on_completed_at; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_invalidations_on_completed_at ON invalidations USING btree (completed_at);
+CREATE INDEX index_invalidations_on_completed_at ON public.invalidations USING btree (completed_at);
 
 
 --
--- Name: index_invalidations_on_petition_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_invalidations_on_petition_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_invalidations_on_petition_id ON invalidations USING btree (petition_id);
+CREATE INDEX index_invalidations_on_petition_id ON public.invalidations USING btree (petition_id);
 
 
 --
--- Name: index_invalidations_on_started_at; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_invalidations_on_started_at; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_invalidations_on_started_at ON invalidations USING btree (started_at);
+CREATE INDEX index_invalidations_on_started_at ON public.invalidations USING btree (started_at);
 
 
 --
--- Name: index_notes_on_petition_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_notes_on_petition_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE UNIQUE INDEX index_notes_on_petition_id ON notes USING btree (petition_id);
+CREATE UNIQUE INDEX index_notes_on_petition_id ON public.notes USING btree (petition_id);
 
 
 --
--- Name: index_petition_emails_on_petition_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_petition_emails_on_petition_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_petition_emails_on_petition_id ON petition_emails USING btree (petition_id);
+CREATE INDEX index_petition_emails_on_petition_id ON public.petition_emails USING btree (petition_id);
 
 
 --
--- Name: index_petitions_on_action; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_petitions_on_action; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_petitions_on_action ON petitions USING gin (to_tsvector('english'::regconfig, (action)::text));
+CREATE INDEX index_petitions_on_action ON public.petitions USING gin (to_tsvector('english'::regconfig, (action)::text));
 
 
 --
--- Name: index_petitions_on_additional_details; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_petitions_on_additional_details; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_petitions_on_additional_details ON petitions USING gin (to_tsvector('english'::regconfig, additional_details));
+CREATE INDEX index_petitions_on_additional_details ON public.petitions USING gin (to_tsvector('english'::regconfig, additional_details));
 
 
 --
--- Name: index_petitions_on_background; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_petitions_on_background; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_petitions_on_background ON petitions USING gin (to_tsvector('english'::regconfig, (background)::text));
+CREATE INDEX index_petitions_on_background ON public.petitions USING gin (to_tsvector('english'::regconfig, (background)::text));
 
 
 --
--- Name: index_petitions_on_created_at_and_state; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_petitions_on_created_at_and_state; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_petitions_on_created_at_and_state ON petitions USING btree (created_at, state);
+CREATE INDEX index_petitions_on_created_at_and_state ON public.petitions USING btree (created_at, state);
 
 
 --
--- Name: index_petitions_on_debate_state; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_petitions_on_debate_state; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_petitions_on_debate_state ON petitions USING btree (debate_state);
+CREATE INDEX index_petitions_on_debate_state ON public.petitions USING btree (debate_state);
 
 
 --
--- Name: index_petitions_on_debate_threshold_reached_at; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_petitions_on_debate_threshold_reached_at; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_petitions_on_debate_threshold_reached_at ON petitions USING btree (debate_threshold_reached_at);
+CREATE INDEX index_petitions_on_debate_threshold_reached_at ON public.petitions USING btree (debate_threshold_reached_at);
 
 
 --
--- Name: index_petitions_on_last_signed_at; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_petitions_on_last_signed_at; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_petitions_on_last_signed_at ON petitions USING btree (last_signed_at);
+CREATE INDEX index_petitions_on_last_signed_at ON public.petitions USING btree (last_signed_at);
 
 
 --
--- Name: index_petitions_on_locked_by_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_petitions_on_locked_by_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_petitions_on_locked_by_id ON petitions USING btree (locked_by_id);
+CREATE INDEX index_petitions_on_locked_by_id ON public.petitions USING btree (locked_by_id);
 
 
 --
--- Name: index_petitions_on_mt_reached_at_and_moderation_lag; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_petitions_on_mt_reached_at_and_moderation_lag; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_petitions_on_mt_reached_at_and_moderation_lag ON petitions USING btree (moderation_threshold_reached_at, moderation_lag);
+CREATE INDEX index_petitions_on_mt_reached_at_and_moderation_lag ON public.petitions USING btree (moderation_threshold_reached_at, moderation_lag);
 
 
 --
--- Name: index_petitions_on_response_threshold_reached_at; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_petitions_on_response_threshold_reached_at; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_petitions_on_response_threshold_reached_at ON petitions USING btree (response_threshold_reached_at);
+CREATE INDEX index_petitions_on_response_threshold_reached_at ON public.petitions USING btree (response_threshold_reached_at);
 
 
 --
--- Name: index_petitions_on_signature_count_and_state; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_petitions_on_signature_count_and_state; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_petitions_on_signature_count_and_state ON petitions USING btree (signature_count, state);
+CREATE INDEX index_petitions_on_signature_count_and_state ON public.petitions USING btree (signature_count, state);
 
 
 --
--- Name: index_petitions_on_tags; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_petitions_on_tags; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_petitions_on_tags ON petitions USING gin (tags gin__int_ops);
+CREATE INDEX index_petitions_on_tags ON public.petitions USING gin (tags gin__int_ops);
 
 
 --
--- Name: index_rejections_on_petition_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_rejections_on_petition_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE UNIQUE INDEX index_rejections_on_petition_id ON rejections USING btree (petition_id);
+CREATE UNIQUE INDEX index_rejections_on_petition_id ON public.rejections USING btree (petition_id);
 
 
 --
--- Name: index_signatures_on_constituency_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_signatures_on_constituency_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_signatures_on_constituency_id ON signatures USING btree (constituency_id);
+CREATE INDEX index_signatures_on_constituency_id ON public.signatures USING btree (constituency_id);
 
 
 --
--- Name: index_signatures_on_created_at_and_ip_address_and_petition_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_signatures_on_created_at_and_ip_address_and_petition_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_signatures_on_created_at_and_ip_address_and_petition_id ON signatures USING btree (created_at, ip_address, petition_id);
+CREATE INDEX index_signatures_on_created_at_and_ip_address_and_petition_id ON public.signatures USING btree (created_at, ip_address, petition_id);
 
 
 --
--- Name: index_signatures_on_domain; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_signatures_on_domain; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_signatures_on_domain ON signatures USING btree ("substring"((email)::text, ("position"((email)::text, '@'::text) + 1)));
+CREATE INDEX index_signatures_on_domain ON public.signatures USING btree ("substring"((email)::text, ("position"((email)::text, '@'::text) + 1)));
 
 
 --
--- Name: index_signatures_on_email_and_petition_id_and_name; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_signatures_on_email_and_petition_id_and_name; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE UNIQUE INDEX index_signatures_on_email_and_petition_id_and_name ON signatures USING btree (email, petition_id, name);
+CREATE UNIQUE INDEX index_signatures_on_email_and_petition_id_and_name ON public.signatures USING btree (email, petition_id, name);
 
 
 --
--- Name: index_signatures_on_invalidation_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_signatures_on_invalidation_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_signatures_on_invalidation_id ON signatures USING btree (invalidation_id);
+CREATE INDEX index_signatures_on_invalidation_id ON public.signatures USING btree (invalidation_id);
 
 
 --
--- Name: index_signatures_on_ip_address_and_petition_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_signatures_on_ip_address_and_petition_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_signatures_on_ip_address_and_petition_id ON signatures USING btree (ip_address, petition_id);
+CREATE INDEX index_signatures_on_ip_address_and_petition_id ON public.signatures USING btree (ip_address, petition_id);
 
 
 --
--- Name: index_signatures_on_name; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_signatures_on_name; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_signatures_on_name ON signatures USING btree (lower((name)::text));
+CREATE INDEX index_signatures_on_name ON public.signatures USING btree (lower((name)::text));
 
 
 --
--- Name: index_signatures_on_petition_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_signatures_on_petition_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_signatures_on_petition_id ON signatures USING btree (petition_id);
+CREATE INDEX index_signatures_on_petition_id ON public.signatures USING btree (petition_id);
 
 
 --
--- Name: index_signatures_on_petition_id_where_creator_is_true; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_signatures_on_petition_id_where_creator_is_true; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE UNIQUE INDEX index_signatures_on_petition_id_where_creator_is_true ON signatures USING btree (petition_id) WHERE (creator = true);
+CREATE UNIQUE INDEX index_signatures_on_petition_id_where_creator_is_true ON public.signatures USING btree (petition_id) WHERE (creator = true);
 
 
 --
--- Name: index_signatures_on_petition_id_where_sponsor_is_true; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_signatures_on_petition_id_where_sponsor_is_true; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_signatures_on_petition_id_where_sponsor_is_true ON signatures USING btree (petition_id) WHERE (sponsor = true);
+CREATE INDEX index_signatures_on_petition_id_where_sponsor_is_true ON public.signatures USING btree (petition_id) WHERE (sponsor = true);
 
 
 --
--- Name: index_signatures_on_state_and_petition_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_signatures_on_state_and_petition_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_signatures_on_state_and_petition_id ON signatures USING btree (state, petition_id);
+CREATE INDEX index_signatures_on_state_and_petition_id ON public.signatures USING btree (state, petition_id);
 
 
 --
--- Name: index_signatures_on_updated_at; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_signatures_on_updated_at; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_signatures_on_updated_at ON signatures USING btree (updated_at);
+CREATE INDEX index_signatures_on_updated_at ON public.signatures USING btree (updated_at);
 
 
 --
--- Name: index_signatures_on_uuid; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_signatures_on_uuid; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_signatures_on_uuid ON signatures USING btree (uuid);
+CREATE INDEX index_signatures_on_uuid ON public.signatures USING btree (uuid);
 
 
 --
--- Name: index_signatures_on_validated_at; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_signatures_on_validated_at; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_signatures_on_validated_at ON signatures USING btree (validated_at);
+CREATE INDEX index_signatures_on_validated_at ON public.signatures USING btree (validated_at);
 
 
 --
--- Name: index_tags_on_name; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_tags_on_name; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE UNIQUE INDEX index_tags_on_name ON tags USING btree (name);
+CREATE UNIQUE INDEX index_tags_on_name ON public.tags USING btree (name);
 
 
 --
--- Name: index_tasks_on_name; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_tasks_on_name; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE UNIQUE INDEX index_tasks_on_name ON tasks USING btree (name);
+CREATE UNIQUE INDEX index_tasks_on_name ON public.tasks USING btree (name);
 
 
 --
--- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (version);
-
-
---
--- Name: fk_rails_0af6bc4d41; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: government_responses fk_rails_0af6bc4d41; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY government_responses
@@ -1476,7 +1479,7 @@ ALTER TABLE ONLY government_responses
 
 
 --
--- Name: fk_rails_3e01179571; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: signatures fk_rails_3e01179571; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY signatures
@@ -1484,7 +1487,7 @@ ALTER TABLE ONLY signatures
 
 
 --
--- Name: fk_rails_3e3a2f376e; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: notes fk_rails_3e3a2f376e; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY notes
@@ -1492,7 +1495,7 @@ ALTER TABLE ONLY notes
 
 
 --
--- Name: fk_rails_5186723bbd; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: constituency_petition_journals fk_rails_5186723bbd; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY constituency_petition_journals
@@ -1500,7 +1503,7 @@ ALTER TABLE ONLY constituency_petition_journals
 
 
 --
--- Name: fk_rails_82ffb00060; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: rejections fk_rails_82ffb00060; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY rejections
@@ -1508,7 +1511,7 @@ ALTER TABLE ONLY rejections
 
 
 --
--- Name: fk_rails_898597541e; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: email_requested_receipts fk_rails_898597541e; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY email_requested_receipts
@@ -1516,7 +1519,7 @@ ALTER TABLE ONLY email_requested_receipts
 
 
 --
--- Name: fk_rails_9f55aacb99; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: petition_emails fk_rails_9f55aacb99; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY petition_emails
@@ -1524,7 +1527,7 @@ ALTER TABLE ONLY petition_emails
 
 
 --
--- Name: fk_rails_cb057e3dd1; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: debate_outcomes fk_rails_cb057e3dd1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY debate_outcomes
