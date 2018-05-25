@@ -100,45 +100,6 @@ CREATE TABLE ar_internal_metadata (
 
 
 --
--- Name: constituencies; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE constituencies (
-    id integer NOT NULL,
-    name character varying(100) NOT NULL,
-    slug character varying(100) NOT NULL,
-    external_id character varying(30) NOT NULL,
-    ons_code character varying(10) NOT NULL,
-    mp_id character varying(30),
-    mp_name character varying(100),
-    mp_date date,
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL,
-    example_postcode character varying(30),
-    party character varying(100)
-);
-
-
---
--- Name: constituencies_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE constituencies_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: constituencies_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE constituencies_id_seq OWNED BY constituencies.id;
-
-
---
 -- Name: constituency_petition_journals; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -806,13 +767,6 @@ ALTER TABLE ONLY admin_users ALTER COLUMN id SET DEFAULT nextval('admin_users_id
 
 
 --
--- Name: constituencies id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY constituencies ALTER COLUMN id SET DEFAULT nextval('constituencies_id_seq'::regclass);
-
-
---
 -- Name: constituency_petition_journals id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -945,14 +899,6 @@ ALTER TABLE ONLY admin_users
 
 ALTER TABLE ONLY ar_internal_metadata
     ADD CONSTRAINT ar_internal_metadata_pkey PRIMARY KEY (key);
-
-
---
--- Name: constituencies constituencies_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY constituencies
-    ADD CONSTRAINT constituencies_pkey PRIMARY KEY (id);
 
 
 --
@@ -1146,20 +1092,6 @@ CREATE UNIQUE INDEX index_admin_users_on_email ON public.admin_users USING btree
 --
 
 CREATE INDEX index_admin_users_on_last_name_and_first_name ON public.admin_users USING btree (last_name, first_name);
-
-
---
--- Name: index_constituencies_on_external_id; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE UNIQUE INDEX index_constituencies_on_external_id ON public.constituencies USING btree (external_id);
-
-
---
--- Name: index_constituencies_on_slug; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE UNIQUE INDEX index_constituencies_on_slug ON public.constituencies USING btree (slug);
 
 
 --
@@ -1684,6 +1616,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180522033130'),
 ('20180522145833'),
 ('20180524033654'),
-('20180524211622');
+('20180524211622'),
+('20180525102331');
 
 
