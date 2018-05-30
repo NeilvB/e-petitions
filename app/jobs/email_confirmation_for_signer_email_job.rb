@@ -17,7 +17,7 @@ class EmailConfirmationForSignerEmailJob < EmailJob
 
       if parish = signature.parish
         updates << "parish_id = :parish_id"
-        params[:parish_id] = parish.external_id
+        params[:parish_id] = parish.id
       end
 
       signature.update_all([updates.join(", "), params])
