@@ -99,26 +99,5 @@ RSpec.describe Parish, type: :model do
         expect(parish.reload.mp_name).to eq("Jim McMahon MP")
       end
     end
-
-    context "when the MP has passed away" do
-      let(:parish) do
-        parish.find_by_postcode('S48AA')
-      end
-
-      before do
-        FactoryBot.create(:parish, {
-          name: "Sheffield, Brightside and Hillsborough", external_id: "3724", ons_code: "E14000921",
-          mp_id: "4477", mp_name: "Harry Harpham", mp_date: "2015-05-07T00:00:00"
-        })
-      end
-
-      it "updates the existing parish" do
-        expect(parish.mp_name).to eq(nil)
-      end
-
-      it "persists the changes to the database" do
-        expect(parish.reload.mp_name).to eq(nil)
-      end
-    end
   end
 end
