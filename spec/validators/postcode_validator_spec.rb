@@ -25,15 +25,7 @@ RSpec.describe PostcodeValidator do
     end
 
     describe "with a valid postcode" do
-      let(:postcode) { "SW1A1AA" }
-
-      it "doesn't add an error" do
-        expect(errors).to be_empty
-      end
-    end
-
-    describe "with a BFPO postcode" do
-      let(:postcode) { "BFPO1234" }
+      let(:postcode) { "JE11AA" }
 
       it "doesn't add an error" do
         expect(errors).to be_empty

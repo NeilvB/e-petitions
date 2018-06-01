@@ -167,6 +167,7 @@ class SignaturesController < ApplicationController
     if @petition.closed_for_signing?
       redirect_to petition_url(@petition), notice: "Sorry, you can't sign petitions that have been closed"
     end
+    expect(Parish).to receive(:find_by_external_id).with("3415").and_call_original
   end
 
   def redirect_to_verify_page

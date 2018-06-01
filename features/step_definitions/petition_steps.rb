@@ -258,8 +258,8 @@ When(/^I fill in the petition details/) do
   )
 end
 
-Then(/^I should see my constituency "([^"]*)"/) do |constituency|
-  expect(page).to have_text(constituency)
+Then(/^I should see my parish "([^"]*)"/) do |parish|
+  expect(page).to have_text(parish)
 end
 
 Then(/^I should see my MP/) do

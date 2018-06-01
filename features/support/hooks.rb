@@ -1,9 +1,9 @@
-Before do
-  default_url_options[:protocol] = 'https'
-end
+require "savon/mock/spec_helper"
+
+include Savon::SpecHelper
 
 Before do
-  Location.create!(code: 'GB', name: 'United Kingdom')
+  default_url_options[:protocol] = 'https'
 end
 
 Before do
@@ -14,8 +14,16 @@ Before do
   )
 end
 
+Before do
+  savon.mock!
+end
+
 After do
   Site.reload
+end
+
+After do
+  savon.unmock!
 end
 
 Before('@admin') do

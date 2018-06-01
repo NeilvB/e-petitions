@@ -47,7 +47,7 @@ When(/^I fill in my details(?: with email "([^"]+)")?$/) do |email_address|
     When I fill in "Name" with "Womboid Wibbledon"
     And I fill in "Email" with "#{email_address}"
     And I check "I am a Jersey resident and aged 16 or over"
-    And I fill in my postcode with "SW14 9RQ"
+    And I fill in my postcode with "JE1 1AA"
     And I check "Email me whenever there’s an update about this petition"
   )
 end
@@ -65,8 +65,8 @@ end
 When(/^I fill in my postcode with "(.*?)"$/) do |postcode|
   step %{I fill in "Postcode" with "#{postcode}"}
   sanitized_postcode = PostcodeSanitizer.call(postcode)
-  fixture_file = sanitized_postcode == "N11TY" ? "single" : "no_results"
-  stub_api_request_for(sanitized_postcode).to_return(api_response(:ok, fixture_file))
+  fixture_file = sanitized_postcode == "JE11AA" ? "st_saviour" : "no_results"
+
 end
 
 When /^I fill in my details and sign a petition$/ do
